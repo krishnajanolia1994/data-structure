@@ -164,8 +164,36 @@ void swap(struct node*head,int x, int y)
   }
   if(flag1&&flag2)
   {
+    if(l1==1&&l2==1)
+    {
+      struct node *pr1next=pr1->next;
+      struct node *pr2next=pr2->next;
+      struct node *pr1nextnext=pr1->next->next;
+      struct node *pr2nextnext=pr2->next->next;
+      pr1->next=pr2->next;
+      pr2->next=pr1->next;
+      pr1next->next=pr2nextnext;
+      pr2next->next=pr1nextnext;
+    }
     if(l1==1&&l2!=1)
-    
+    {
+      struct node *pr1next=pr1->next;
+      struct node *pr2next=pr2->next;
+      struct node *pr2nextnext=pr2->nextnext;
+      pr1->next=pr2nextnext;
+      pr2->next=pr1;
+      pr2nextnext=pr1next;
+    }
+    if(l2==1&&l1!=1)
+    {
+      struct node *pr2next=pr2->next;
+      struct node *pr1next=pr1->next;
+      struct node *pr1nextnext=pr1->nextnext;
+      pr2->next=pr1nextnext;
+      pr1->next=pr2;
+      pr1nextnext=pr2next;
+      
+    }
   }
 }
 void main()
@@ -183,13 +211,8 @@ pushend(head,z);
 pushend(head->next->next,z);
 deletenode(head,z);
 cout<<"length of linked list is"<<find(head);
+swap(x,y);
 getch();
 }
 
-    Contact GitHub
-    API
-    Training
-    Shop
-    Blog
-    About
-
+   
