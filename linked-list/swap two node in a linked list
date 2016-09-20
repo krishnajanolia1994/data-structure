@@ -114,6 +114,7 @@ int find(struct node*head)
   }
   return count;
 }
+//this function swap two node of a linked list
 void swap(struct node*head,int x, int y)
 {
   int flag1=flag2=0;
