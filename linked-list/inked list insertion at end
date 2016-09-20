@@ -1,0 +1,54 @@
+#include<iostrea.h>
+#include<conio.h>
+struct node
+{
+  int x;
+  struct node *next;
+}
+//function which insert node at front
+void pushfront(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    newnode->next=head;
+    head=newnode;
+  }
+}
+//function which insert node at end
+void pushend(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    struct node * temp = head;
+    while(temp->next!=NULL)
+      temp=tem->next;    
+    temp->next=newnode;
+  }
+}
+void main()
+{
+  clrscr();
+  int x,t,z;
+  cin>>x>>y>>z;
+  struct node* head= NULL;
+  pushront(head,x);
+  pushront(head,y);
+  pushront(head,z);
+  pushend(head,x);
+  pushend(head,y);
+  pushend(head,z);
+  getch();
+}
+
+   
+
