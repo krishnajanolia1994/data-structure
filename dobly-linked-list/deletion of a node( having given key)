@@ -1,0 +1,150 @@
+#include<iostrea.h>
+#include<conio.h>
+struct node
+{
+  int x;
+  struct node *next;
+  struct node *prv;
+}
+
+
+// a funtion which delete a node having given key
+void deletenode(struct node *head ,int info)
+{
+  struct node * temp;
+  if(head->x==info)
+  {
+    temp=head;
+    head=head->next;
+    free(temp);
+  }
+  else
+  {
+    temp=head->next;
+    struct node * prv head;
+    int k=0;
+    while(temp!=NULL)
+    {
+      if(temp->x==info)
+      {
+        k=1;
+        break;
+      }
+      prv=prv->next;
+      temp=temp->next;
+    }
+    if(k==1)
+    temp=temp->next;
+    struct node* temp2=prv->next;
+    prv->next=temp;
+    temp->prv=prv;
+    free(temp2);
+  }
+  else
+    cout<<"element not found";
+}
+
+
+
+
+//delete a node at position x
+void deleteafter(struct node* head, int x)
+{
+  struct node* temp=head;
+  struct node * temp1=head->next;
+  
+  if(x==1)
+  {
+    head=temp1;
+    free(temp)
+  }
+  else
+  {
+    int i;
+    for(i=1;i<x-1;i++)
+      temp=temp->next;
+    if(temp!=NULL)
+    {
+      temp1=temp->next->next;
+      temp->next=temp1;
+      temp1->prvt=temp;
+      free(temp);
+      free(temp1);
+      
+    }
+  }
+}
+
+
+
+//function to add a node after given node
+void pushafter(struct node *prvc , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  newnode->prv=NULL;
+  struct node *temp=prvc->next;
+  prvc->next=newnode;
+  newnode->prv=prvc;
+  newnode->next=temp;
+  temp->prv=newnode;
+}
+
+
+
+//function which insert node at end
+void pushend(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  newnode->prv=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    struct node * temp = head;
+    while(temp->next!=NULL)
+      temp=tem->next;    
+    temp->next=newnode;
+    new->node->prv=tem;
+  }
+}
+
+
+
+//funtion to insert element after head
+void pushfront(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  newnode->prv=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    newnode->next=head;
+    head->prv=newnode;
+    head=newnode;
+  }
+}
+void main()
+{
+  clrscr();
+  int x,t,z;
+  cin>>x>>y>>z;
+  struct node* head= NULL;
+  pushront(head,x);
+  pushront(head,y);
+  pushront(head,z);
+   pushend(head,x);
+  pushend(head,y);
+  pushend(head,z);
+  pushafter(head,x);
+  pushafter(head,y);
+  pushafter(head,z);
+  deleteafter(head,z);
+  getch();
+}
