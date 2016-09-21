@@ -1,0 +1,123 @@
+#include<iostrea.h>
+#include<conio.h>
+struct node
+{
+  int x;
+  struct node *next;
+}
+
+
+
+
+//function to split a circular linked list
+struct node * split(struct node * head)
+{
+  struct node *mid,*temp*;
+  mid=head;
+  temp=head->next;
+  int k=2;
+  while(temp!=head)
+  {
+    if(k%2==0)
+      mid=mid->next;
+    temp=tepm->next;
+    k++;
+  }
+  struct node *temp2=mid->next;
+  mid->next=head;
+  temp->next=temp2;
+  free(temp);
+  free(mid);
+  return temp2;
+}
+
+
+
+
+
+//funtion to traverse a linked list
+void traverse(struct node * head)
+{
+  if(head!=NULL)
+  {
+    struct node *temp = head;
+    cout<<temp->x;
+    temp=temp->next;
+    while(temp!=head)
+    {
+      cout<<endl<<temp->x;
+      temp=temp-next;
+    }
+  }
+  else
+  cout<<"linked list is eampty";
+}
+
+
+
+
+//function which delete a node havin key value k
+//a funtion which delete a node at given position
+void deleteat(struct node* head, int x)
+{
+  struct node* temp=head;
+  struct node * temp1=head->next;
+  
+  if(x==1)
+  {
+    head=temp1;
+    free(temp)
+  }
+  else
+  {
+    int i;
+    for(i=1;i<x;i++)
+      temp=temp->next;
+    if(temp->!=NULL)
+    {
+      temp1=temp->next->next;
+      free(temp->next);
+      temp->next=temp1;
+      free(temp1);
+    }
+  }
+}
+
+
+
+//funtion to insert element after head
+void pushfront(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+    {
+      if(head->next==NULL)
+      {
+        head->next=newnode;
+        newnode->next=head;
+      }
+      else
+      {
+        struct node *temp=head->next;
+        head->next=newnode;
+        newnode->next=temp;
+        free(temp);
+      }
+    }
+}
+void main()
+{
+  clrscr();
+  int x,t,z;
+  cin>>x>>y>>z;
+  struct node* head= NULL;
+  pushront(head,x);
+  pushront(head,y);
+  pushront(head,z);
+  deleteat(head,2);
+  getch();
+}
