@@ -9,6 +9,27 @@ struct node
 
 
 
+//function which insert node at end
+void pushend(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  newnode->prv=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    struct node * temp = head;
+    while(temp->next!=NULL)
+      temp=tem->next;    
+    temp->next=newnode;
+    new->node->prv=tem;
+  }
+}
+
+
+
 //funtion to insert element after head
 void pushfront(struct node *head , int x)
 {
@@ -34,5 +55,8 @@ void main()
   pushront(head,x);
   pushront(head,y);
   pushront(head,z);
+   pushend(head,x);
+  pushend(head,y);
+  pushend(head,z);
   getch();
 }
