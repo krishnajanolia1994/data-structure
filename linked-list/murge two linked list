@@ -5,6 +5,9 @@ struct node
   int x;
   struct node *next;
 }
+
+
+
 //function which insert node at front
 void pushfront(struct node *head , int x)
 {
@@ -19,6 +22,10 @@ void pushfront(struct node *head , int x)
     head=newnode;
   }
 }
+
+
+
+
 //function which insert a node after given node
 void pushafter(struct node *prv , int x)
 {
@@ -29,6 +36,10 @@ void pushafter(struct node *prv , int x)
   prv->next=newnode;
   newnode->temp;
 }
+
+
+
+
 //function which insert node at end
 void pushend(struct node *head , int x)
 {
@@ -45,6 +56,11 @@ void pushend(struct node *head , int x)
     temp->next=newnode;
   }
 }
+
+
+
+
+
 //delete node by key
 void deletenode(struct node *head ,int info)
 {
@@ -80,6 +96,10 @@ void deletenode(struct node *head ,int info)
     
   }
 }
+
+
+
+//fuction to delete a node at given position
 void deleteByPosition(struct node* head, int x)
 {
   struct node* temp=head;
@@ -102,6 +122,10 @@ void deleteByPosition(struct node* head, int x)
     }
   }
 }
+
+
+
+
 //find length of linked list
 int find(struct node*head)
 {
@@ -114,6 +138,10 @@ int find(struct node*head)
   }
   return count;
 }
+
+
+
+
 //this function swap two node of a linked list
 void swap(struct node*head,int x, int y)
 {
@@ -217,46 +245,58 @@ struct node * reverse(struct node *head,struct node *newhead,int k)
   free(temp2);
   return newnode;
 }
+
+
+
+
 //function to murge a linked list
 struct node * murge(struct node *head,struct node *head1)
 {
+  struct  node *HEAD;
   if(head->x<head1->x)
-    HEAD=head;
+    {
+      HEAD=head;
+      HEAD->x=head->x;
+      head=head->next;
+    }
   else
-    HEAD=head2;
-    temp=head;
+    {
+    HEAD=head1;
+    HEAD->x=head1->x;
+    head2=head2->next;
+    }
   while(head!=NULL||head2!NULL)
   {
     if(head!=NULL&&head2!NULL)
     {
       if(head->x<head1->x)
       {
-        temp->x=head->x;
-        temp=temp->next;
+        HEAD->next=head;
         head=head->next;
       }
       else
       {
-        temp->x=head1->x;
-        temp=temp->next;
+        HEAD->next=head1;
         head1=head1->next;
       }
     }
     else if(head!=NULL&&head1==NULL)
     {
-      temp->x=head->x;
-      temp=temp->next;
-      head=head->next;
+      HEAD->next=head;
+      head1=head->next
     }
     else
     {
-      temp->x=head1->x;
-      temp=temp->next;
+      HEAD->next=head1;
       head1=head1->next;
     }
   }
   return HEAD;
 }
+
+
+
+
 void main()
 {
 clrscr();
