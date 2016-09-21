@@ -265,30 +265,35 @@ struct node * murge(struct node *head,struct node *head1)
     HEAD->x=head1->x;
     head1=head1->next;
     }
+  struct node *temp=HEAD;
   while(head!=NULL||head2!NULL)
   {
     if(head!=NULL&&head2!NULL)
     {
       if(head->x<head1->x)
       {
-        HEAD->next=head;
+        temp->next=head;
         head=head->next;
+        temp=temp->next;
       }
       else
       {
-        HEAD->next=head1;
+        temp->next=head1;
         head1=head1->next;
+        temp=temp->next;
       }
     }
     else if(head!=NULL&&head1==NULL)
     {
-      HEAD->next=head;
-      head=head->next
+      temp->next=head;
+      head=head->next;
+      temp=temp->next;
     }
     else
     {
-      HEAD->next=head1;
+      temp->next=head1;
       head1=head1->next;
+      temp=temp->next;
     }
   }
   return HEAD;
