@@ -263,7 +263,7 @@ struct node * murge(struct node *head,struct node *head1)
     {
     HEAD=head1;
     HEAD->x=head1->x;
-    head2=head2->next;
+    head1=head1->next;
     }
   while(head!=NULL||head2!NULL)
   {
@@ -283,7 +283,7 @@ struct node * murge(struct node *head,struct node *head1)
     else if(head!=NULL&&head1==NULL)
     {
       HEAD->next=head;
-      head1=head->next
+      head=head->next
     }
     else
     {
