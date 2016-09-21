@@ -1,0 +1,350 @@
+#include<iostrea.h>
+#include<conio.h>
+struct node
+{
+  int x;
+  struct node *next;
+}
+
+
+
+
+//function which insert node at front
+void pushfront(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    newnode->next=head;
+    head=newnode;
+  }
+}
+
+
+
+
+//function which insert a node after given node
+void pushafter(struct node *prv , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  struct node *temp=prv->next;
+  prv->next=newnode;
+  newnode->temp;
+}
+
+
+
+
+//function which insert node at end
+void pushend(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    struct node * temp = head;
+    while(temp->next!=NULL)
+    temp=tem->next;
+    temp->next=newnode;
+  }
+}
+
+
+
+
+//delete node by key
+void deletenode(struct node *head ,int info)
+{
+  struct node * temp;
+  if(head->x==info)
+  {
+    temp=head;
+    head=head-next;
+    free(temp);
+  }
+  else
+  {
+    temp=head->next;
+    struct node * prv head;
+    int k=0;
+    while(temp!=NULL)
+    {
+      if(temp->x==info)
+      {
+        k=1;
+        break;
+      }
+        prv=prv->next;
+        temp=temp->next;
+    }
+      if(k==1)
+      {
+        temp=temp->next;
+        struct node* temp2=prv->next;
+        prv->next=temp;
+        free(temp2);
+      }
+    
+  }
+}
+
+
+
+//this function delete node at give position
+void deleteByPosition(struct node* head, int x)
+{
+  struct node* temp=head;
+  struct node * temp1=head->next;
+  if(x==1)
+  {
+    head=temp1;
+    free(temp)
+  }
+  else
+  {
+    int i;
+    for(i=1;i<x;i++)
+      temp=temp->next;
+    if(temp->!=NULL)
+    {
+      temp1=temp->next->next;
+      free(temp->next);
+      temp->next=temp1;
+    }
+  }
+}
+
+
+
+
+//find length of linked list
+int find(struct node*head)
+{
+  int count =0;
+  struct node *temp=head;
+  while(temp!=null)
+  {
+    count++;
+    temp=temp->next;
+  }
+  return count;
+}
+
+
+
+
+//this function swap two node of a linked list
+void swap(struct node*head,int x, int y)
+{
+  int flag1=flag2=0;
+  int k=1;
+  int l1=l2=0;
+  struct node *pr1,*pr2;
+  pr1=head;
+  pr2=head;
+  if(head->x==x)
+  {
+    l1=1;
+    flag1=1;
+    pr1=head;
+  }
+  if(head->x==y)
+  {
+    l2=1;
+    flag2=1'
+    pr2=head;
+  }
+  if(l1!=1)
+  {
+    temp=pr1->next;
+    while(temp!=null)
+    {
+      if(temp->x==x)
+      {
+        break;
+        flag=1;
+      }
+      pr1=pr1->next;
+      temp=temp->next;
+    }
+  }
+  if(l2!=1)
+  {
+    temp=pr2->next;
+    while(temp!=null)
+    {
+      if(temp->x==x)
+      {
+        break;
+        flag=2;
+      }
+      pr2=pr2->next;
+      temp=temp->next;
+    }
+  }
+  if(flag1&&flag2)
+  {
+    if(l1==1&&l2==1)
+    {
+      struct node *pr1next=pr1->next;
+      struct node *pr2next=pr2->next;
+      struct node *pr1nextnext=pr1->next->next;
+      struct node *pr2nextnext=pr2->next->next;
+      pr1->next=pr2->next;
+      pr2->next=pr1->next;
+      pr1next->next=pr2nextnext;
+      pr2next->next=pr1nextnext;
+    }
+    if(l1==1&&l2!=1)
+    {
+      struct node *pr1next=pr1->next;
+      struct node *pr2next=pr2->next;
+      struct node *pr2nextnext=pr2->nextnext;
+      pr1->next=pr2nextnext;
+      pr2->next=pr1;
+      pr2nextnext=pr1next;
+    }
+    if(l2==1&&l1!=1)
+    {
+      struct node *pr2next=pr2->next;
+      struct node *pr1next=pr1->next;
+      struct node *pr1nextnext=pr1->nextnext;
+      pr2->next=pr1nextnext;
+      pr1->next=pr2;
+      pr1nextnext=pr2next;
+      
+    }
+  }
+}
+
+
+
+
+//function to reverse a linked list
+struct node * reverse(struct node *head,struct node *newhead,int k)
+{
+  struct node *temp1 , *temp2;
+  temp1=head;
+  temp2=head->next;
+  if(temp2->!next=null)
+    reverse(head->next,newnode)
+  if(k==1)
+  {
+    newnode=temp2;
+    temp2->next=temp1;
+    k++;
+  }
+  else
+    temp2-next=tem1;
+  free(temp1);
+  free(temp2);
+  return newnode;
+}
+
+
+
+
+//function to murge a linked list
+struct node * murge(struct node *head,struct node *head1)
+{
+  if(head->x<head1->x)
+    HEAD=head;
+  else
+    HEAD=head2;
+    temp=head;
+  while(head!=NULL||head2!NULL)
+  {
+    if(head!=NULL&&head2!NULL)
+    {
+      if(head->x<head1->x)
+      {
+        temp->x=head->x;
+        temp=temp->next;
+        head=head->next;
+      }
+      else
+      {
+        temp->x=head1->x;
+        temp=temp->next;
+        head1=head1->next;
+      }
+    }
+    else if(head!=NULL&&head1==NULL)
+    {
+      temp->x=head->x;
+      temp=temp->next;
+      head=head->next;
+    }
+    else
+    {
+      temp->x=head1->x;
+      temp=temp->next;
+      head1=head1->next;
+    }
+  }
+  return HEAD;
+}
+
+
+//funtion to remove loop in liked list
+void rmloop(srruct node * heah)
+{
+  sruct node * temp = head;
+  int k=1;
+  while(temp!=NULL)
+  {
+    if(temp->next==head)
+    {
+      k=0;
+      temp->next=NULL;
+    }
+  }
+  if(k==1)
+    cout<<"loop not found";
+  else 
+    cout<<"found a loop and removed";
+}
+
+
+
+void main()
+{
+clrscr();
+int x,t,z;
+cin>>x>>y>>z;
+struct node* head= NULL;
+pushront(head,x);
+pushront(head,y);
+pushront(head,z);
+pushend(head,x);
+pushend(head,y);
+pushend(head,z);
+pushafter(head->next->next,z);
+struct node* head1= NULL;
+pushront(head1,y);
+pushront(head1,x);
+pushront(head1,x);
+pushend(head1,z);
+pushend(head1,z);
+pushend(head1,y);
+pushafter(head1->next->next,z);
+deletenode(head,z);
+cout<<"length of linked list is"<<find(head);
+struct  node *HEAD = NULL;
+HEAD=murge(head,hed1)
+int k=1;
+struct node * newnode=NULL;
+head=reverse(head,newnode,k);
+swap(x,y);
+rmloop(HEAD);
+getch();
+}
