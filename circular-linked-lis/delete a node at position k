@@ -1,0 +1,76 @@
+#include<iostrea.h>
+#include<conio.h>
+struct node
+{
+  int x;
+  struct node *next;
+}
+
+
+
+
+
+//function which delete a node havin key value k
+//a funtion which delete a node at given position
+void deleteafter(struct node* head, int x)
+{
+  struct node* temp=head;
+  struct node * temp1=head->next;
+  
+  if(x==1)
+  {
+    head=temp1;
+    free(temp)
+  }
+  else
+  {
+    int i;
+    for(i=1;i<x;i++)
+      temp=temp->next;
+    if(temp->!=NULL)
+    {
+      temp1=temp->next->next;
+      free(temp->next);
+      temp->next=temp1;
+      free(temp1);
+    }
+  }
+}
+
+
+
+//funtion to insert element after head
+void pushfront(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+    {
+      if(head->next==NULL)
+      {
+        head->next=newnode;
+        newnode->next=head;
+      }
+      else
+      {
+        struct node *temp=head->next;
+        head->next=newnode;
+        newnode->next=temp;
+        free(temp);
+      }
+    }
+}
+void main()
+{
+  clrscr();
+  int x,t,z;
+  cin>>x>>y>>z;
+  struct node* head= NULL;
+  pushront(head,x);
+  pushront(head,y);
+  pushront(head,z);
+  getch();
+}
