@@ -5,6 +5,10 @@ struct node
   int x;
   struct node *next;
 }
+
+
+
+//funtion to insert element after head
 void pushfront(struct node *head , int x)
 {
   struct node * newnode =(struct node *)malloc(sizeof(stuct node))
@@ -14,8 +18,18 @@ void pushfront(struct node *head , int x)
     head=newnode;
   else
     {
-      newnode->next=head;
-      head=newnode;
+      if(head->next==NULL)
+      {
+        head->next=newnode;
+        newnode->next=head;
+      }
+      else
+      {
+        struct node *temp=head->next;
+        head->next=newnode;
+        newnode->next=temp;
+        free(temp);
+      }
     }
 }
 void main()
