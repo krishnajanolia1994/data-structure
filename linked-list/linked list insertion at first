@@ -17,20 +17,10 @@ void pushfront(struct node *head , int x)
   if(heah==null)
     head=newnode;
   else
-    {
-      if(head->next==NULL)
-      {
-        head->next=newnode;
-        newnode->next=head;
-      }
-      else
-      {
-        struct node *temp=head->next;
-        head->next=newnode;
-        newnode->next=temp;
-        free(temp);
-      }
-    }
+  {
+    newnode->next=head;
+    head=newnode;
+  }
 }
 void main()
 {
