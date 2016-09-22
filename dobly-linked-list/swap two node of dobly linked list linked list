@@ -1,0 +1,277 @@
+#include<iostrea.h>
+#include<conio.h>
+struct node
+{
+  int x;
+  struct node *next;
+  struct node *prv;
+}
+
+
+
+
+
+//swap two node of linked linked list
+void swap(struct node*head,int x, int y)
+{
+  struct node * temp1,*temp2;
+  temp1=temp2=head;
+  int k=0;
+  while(temp1!=NULL&&temp2!NULL)
+  {
+    if(k<1&&temp1->x==x)
+    {
+      x++;
+    }
+    else if(k<2&&temp2->x==y)
+    {
+    x++;
+    }
+    if(x==2)
+      break;
+    else if(x==1)
+      {
+        temp1=temp1->next;
+        temp2=temp2->next;
+      }
+      else
+      {
+        temp2=temp2->next;
+      }
+      struct node *temp1prv,*temp1next,*temp2prv,*temp2next;
+      temp1prv=temp1->prv;
+      temp1next=temp1->next;
+      temp2prv=temp2->prv;
+      temp2next=temp2->next;
+      temp1prv->next=temp2;
+      temp2->prv=temp1prv;
+      temp2->next=temp1next;
+      temp1next->prv=temp2;
+      temp2prv->next=temp1;
+      temp1->prv=temp2prv;
+      temp1->next=temp2next;
+      temp2next->prv=temp1;
+      free(temp1);
+      free(temp2);
+      free(temp1prv);
+      free(temp1next);
+      free(temp2prv);
+      free(temp2next);
+      
+  }
+}
+
+
+
+
+//function to murge two linked list
+struct node * murge(struct node *head,struct node *head1)
+{
+  struct  node *HEAD;
+  if(head->x<head1->x)
+    {
+      HEAD=head;
+      HEAD->x=head->x;
+      head=head->next;
+    }
+  else
+    {
+    HEAD=head1;
+    HEAD->x=head1->x;
+    head1=head1->next;
+    }
+  struct node *temp=HEAD;
+  while(head!=NULL||head2!NULL)
+  {
+    if(head!=NULL&&head2!NULL)
+    {
+      if(head->x<head1->x)
+      {
+        temp->next=head;
+        head->prv=temp;
+        head=head->next;
+        temp=temp->next;
+      }
+      else
+      {
+        temp->next=head1;
+        head1->prv=temp;
+        head1=head1->next;
+        temp=temp->next;
+      }
+    }
+    else if(head!=NULL&&head1==NULL)
+    {
+      temp->next=head;
+      head->prv=temp;
+      head=head->next;
+      temp=temp->next;
+    }
+    else
+    {
+      temp->next=head1;
+      head1->prv=temp;
+      head1=head1->next;
+      temp=temp->next;
+    }
+  }
+  return HEAD;
+}
+
+
+
+
+// a funtion which delete a node having given key
+void deletenode(struct node *head ,int info)
+{
+  struct node * temp;
+  if(head->x==info)
+  {
+    temp=head;
+    head=head->next;
+    free(temp);
+  }
+  else
+  {
+    temp=head->next;
+    struct node * prv head;
+    int k=0;
+    while(temp!=NULL)
+    {
+      if(temp->x==info)
+      {
+        k=1;
+        break;
+      }
+      prv=prv->next;
+      temp=temp->next;
+    }
+    if(k==1)
+    temp=temp->next;
+    struct node* temp2=prv->next;
+    prv->next=temp;
+    temp->prv=prv;
+    free(temp2);
+  }
+  else
+    cout<<"element not found";
+}
+
+
+
+
+//delete a node at position x
+void deleteafter(struct node* head, int x)
+{
+  struct node* temp=head;
+  struct node * temp1=head->next;
+  
+  if(x==1)
+  {
+    head=temp1;
+    free(temp)
+  }
+  else
+  {
+    int i;
+    for(i=1;i<x-1;i++)
+      temp=temp->next;
+    if(temp!=NULL)
+    {
+      temp1=temp->next->next;
+      temp->next=temp1;
+      temp1->prvt=temp;
+      free(temp);
+      free(temp1);
+      
+    }
+  }
+}
+
+
+
+//function to add a node after given node
+void pushafter(struct node *prvc , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  newnode->prv=NULL;
+  struct node *temp=prvc->next;
+  prvc->next=newnode;
+  newnode->prv=prvc;
+  newnode->next=temp;
+  temp->prv=newnode;
+}
+
+
+
+//function which insert node at end
+void pushend(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  newnode->prv=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    struct node * temp = head;
+    while(temp->next!=NULL)
+      temp=tem->next;    
+    temp->next=newnode;
+    new->node->prv=tem;
+  }
+}
+
+
+
+//funtion to insert element after head
+void pushfront(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  newnode->prv=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    newnode->next=head;
+    head->prv=newnode;
+    head=newnode;
+  }
+}
+void main()
+{
+  clrscr();
+  int x,t,z;
+  cin>>x>>y>>z;
+  struct node* head= NULL;
+  pushront(head,x);
+  pushront(head,y);
+  pushront(head,z);
+   pushend(head,x);
+  pushend(head,y);
+  pushend(head,z);
+  pushafter(head,x);
+  pushafter(head,y);
+  pushafter(head,z);
+  deleteafter(head,z);
+  struct node* head1= NULL;
+  pushront(head1,x);
+  pushront(head1,y);
+  pushront(head1,z);
+   pushend(head1,x);
+  pushend(head1,y);
+  pushend(head1,z);
+  pushafter(head1,x);
+  pushafter(head1,y);
+  pushafter(head1,z);
+  deleteafter(head1,z);
+  deletenode(head,y);
+  sreuct node *HEAD = murge(head,head1);
+  swap(head,x,z);
+  getch();
+}
