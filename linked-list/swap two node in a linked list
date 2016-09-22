@@ -102,6 +102,10 @@ void deleteByPosition(struct node* head, int x)
     }
   }
 }
+
+
+
+
 //find length of linked list
 int find(struct node*head)
 {
@@ -114,6 +118,10 @@ int find(struct node*head)
   }
   return count;
 }
+
+
+
+
 //this function swap two node of a linked list
 void swap(struct node*head,int x, int y)
 {
