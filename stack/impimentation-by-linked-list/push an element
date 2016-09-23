@@ -8,4 +8,36 @@ struct stack
 
 
 
-//
+//function to push a element 
+
+//funtion to insert element after head
+void pushfront(struct node *head , int x)
+{
+  struct node * newnode =(struct node *)malloc(sizeof(stuct node))
+  newnode->x=x;
+  newnode->next=NULL;
+  if(heah==null)
+    head=newnode;
+  else
+  {
+    newnode->next=head;
+    head=newnode;
+  }
+}
+
+
+
+
+
+
+void main()
+{
+  clrscr();
+  int x,t,z;
+  cin>>x>>y>>z;
+  struct node* head= NULL;
+  pushront(head,x);
+  pushront(head,y);
+  pushront(head,z);
+  getch();
+}
