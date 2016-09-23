@@ -1,0 +1,69 @@
+#include<iostream.h>
+#include<limit.h>
+#include<stdlib.h>
+ 
+ 
+ 
+ 
+ 
+//to create a structure
+struct stake
+{
+  int *k;
+  unsigned size;
+  int top;
+}
+
+
+
+
+//funtion to pop an element
+int pop(struct stack *newstack)
+{ 
+  int x;
+  if(stack->top>=0)
+  {
+    x=stack->k[stack->top];
+    stack->top--;
+  }
+  else
+    cout<<"stack underflow";
+}
+
+
+
+//push an element in stack
+void push(struct stack * newstack , int info)
+{
+  if(stack->top<stack->size)
+  {
+    stack->k[stack->top++]=info;
+  }
+  else
+    cout<<"stack overflow";
+}
+
+
+
+
+struct stack * create(unsigned size)
+{
+  struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
+  stack->top=-1;
+  stack->size=size;
+  stack->k= (int *)malloc(size*sizeof(int));
+  return newstack;
+}
+
+
+
+void main()
+{
+  int size;
+  cout<<"enter size of stack";
+  cin>>size;
+  struct stack *newstack=create(int size);
+  push(newstack,size);
+  cout<<pop(newstack);
+  getch();
+}
