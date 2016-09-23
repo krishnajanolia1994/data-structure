@@ -1,0 +1,38 @@
+#include<iostream.h>
+#include<limit.h>
+#include<stdlib.h>
+ 
+ 
+ 
+ 
+ 
+//to create a structure
+struct stake
+{
+  int *k;
+  unsigned size;
+  int top;
+}
+
+
+
+
+struct stack * create(unsigned size)
+{
+  struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
+  stack->top=-1;
+  stack->size=size;
+  stack->k= (int *)malloc(size*sizeof(int));
+  return newstack;
+}
+
+
+
+void main()
+{
+  int size;
+  cout<<"enter size of stack";
+  cin>>size;
+  struct stack *newstack=create(int size)
+  getch();
+}
