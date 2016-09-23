@@ -1,0 +1,110 @@
+#include<iostream.h>
+#include<limit.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<string.h>
+ 
+ 
+ 
+ 
+ 
+//to create a structure
+struct stake
+{
+  char *k;
+  unsigned size;
+  int top;
+}
+
+
+
+//find value of postfix expression
+int value(char * exp)
+{
+  int l=strlen(exp);
+  int k=0;
+  struct stack * newstack=create(l);
+  int i;
+  for(i=0;i<l;i++)
+  {
+    if(isdigit(*exp)
+    {
+      push(newstack,*exp);
+      exp++;
+    }
+    else
+    {
+      switch(*exp)
+      {
+        int val1=pop(newstack);
+        int val2=pop(newstack);
+        case '+' :
+          push(newstack,val1+val2)
+          break;
+        case '-' :
+          push(newstack,val1-val2)
+          break;
+        case '*' :
+          push(newstack,val1*val2)
+          break;
+        case '/' :
+          push(newstack,val1/val2)
+          break;  
+      }
+    }
+  }
+ return pop(newstack);
+}
+
+
+
+
+
+//funtion to pop an element
+int pop(struct stack *newstack)
+{ 
+  int x;
+  if(stack->top>=0)
+  {
+    x=stack->k[stack->top];
+    stack->top--;
+  }
+  else
+    cout<<"stack underflow";
+  return x;
+}
+
+
+
+//push an element in stack
+void push(struct stack * newstack , int info)
+{
+  if(stack->top<stack->size)
+  {
+    stack->k[stack->top++]=info;
+  }
+  else
+    cout<<"stack overflow";
+}
+
+
+
+
+struct stack * create(unsigned size)
+{
+  struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
+  stack->top=-1;
+  stack->size=size;
+  stack->k= (int *)malloc(size*sizeof(int));
+  return newstack;
+}
+
+
+
+void main()
+{
+  char exp[]={231*+9-};
+  int x=value(exp);
+  cout<<"value of expression is"<<x;
+  getch();
+}
