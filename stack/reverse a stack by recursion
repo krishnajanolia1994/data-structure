@@ -1,0 +1,142 @@
+#include<iostream.h>
+#include<limit.h>
+#include<stdlib.h>
+#incude<string.h>
+ 
+ 
+ 
+ 
+ 
+//to create a structure
+struct stake
+{
+  char *k;
+  unsigned size;
+  int top;
+}
+
+
+
+
+//to reverse a stack
+void reverse(struct stach  *newstack)
+{
+  if(newstack->top>=0)
+  {
+    char ch=pop(newstack);
+    reverse(newstack);
+  }
+  push(ch);
+}
+
+
+
+//funtion to chack balane of string
+int balance(char ch[])
+{
+  int k=1;
+  int l;
+  l=strlen(ch);
+  int i;
+  struct stack *newstack=create(l);
+  fot(i=0;i<l;i++)
+  {
+    switch(ch[i])
+    {
+      case '(' :
+        push(newstack,ch[i]);
+        break;
+      case '{' :
+        push(newstack,ch[i]);
+        break;
+      case '[' :
+        push(newstack,ch[i]);
+        break;  
+      case ')' :
+        char ck;
+        ck=pop(newstack);
+        if(ch[i]!=ck)
+        k=0;
+        break;
+      case '}' :
+        char ck;
+        ck=pop(newstack);
+        if(ch[i!=ck])
+        k=0;
+        break;
+      case ']' :
+        char ck;
+        ck=push(newstack);
+        if(ck!=ch[i])
+        k=0;
+        break;  
+    }
+    if(k==0)
+      break;
+  }
+  if(k==0)
+    return 0;
+  else if(newstack->top<0)
+    return 1;
+  else
+    return 0;
+}
+
+
+
+
+//funtion to pop an element
+char pop(struct stack *newstack)
+{ 
+  char x;
+  if(stack->top>=0)
+  {
+    x=stack->k[stack->top];
+    stack->top--;
+  }
+  else
+    cout<<"stack underflow";
+    return x;
+}
+
+
+
+//push an element in stack
+void push(struct stack * newstack , char info)
+{
+  if(stack->top<stack->size)
+  {
+    stack->k[stack->top++]=info;
+  }
+  else
+    cout<<"stack overflow";
+}
+
+
+
+
+struct stack * create(unsigned size)
+{
+  struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
+  stack->top=-1;
+  stack->size=size;
+  stack->k= (char *)malloc(size*sizeof(char));
+  return newstack;
+}
+
+
+
+void main()
+{
+  char ch[]={{[()]}};
+  if(balance(ch))
+    cout<<"given string is balanced";
+  struct stack newstack=create(6);
+  puch(newstack,'a');
+  puch(newstack,'b');
+  puch(newstack,'c');
+  puch(newstack,'d');
+  puch(newstack,'e');
+  reverse(newstack);
+  getch;
+}
