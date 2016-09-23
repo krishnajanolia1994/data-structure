@@ -1,0 +1,11 @@
+#include<iostream.h>
+#include<conio.h>
+struct stack
+{
+  int x;
+  struct stack * next;
+}
+
+
+
+//
