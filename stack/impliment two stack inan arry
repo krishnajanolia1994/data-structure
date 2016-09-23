@@ -1,0 +1,103 @@
+#include<iostream.h>
+#include<limit.h>
+#include<stdlib.h>
+ 
+ 
+ 
+ 
+ 
+//to create a structure
+struct stake
+{
+  int *k;
+  unsigned size;
+  int top1;
+  int top2;
+}
+
+
+
+
+//funtion to pop an element from top1
+int poptop1(struct stack *newstack)
+{ 
+  int x;
+  if(stack->top1>=0)
+  {
+    x=stack->k[stack->top1];
+    stack->top1--;
+  }
+  else
+    cout<<"stack underflow";
+    return x;
+}
+
+
+
+
+//funtion to pop an element frm top2
+int poptop2(struct stack *newstack)
+{ 
+  int x;
+  if(stack->top2>size)
+  {
+    x=stack->k[stack->top];
+    stack->top++;
+  }
+  else
+    cout<<"stack underflow";
+    return x;
+}
+
+
+
+
+//push an element in stack
+void pushfront(struct stack * newstack , int info)
+{
+  if(stack->top1<stack->top2)
+  {
+    stack->k[stack->top++]=info;
+  }
+  else
+    cout<<"stack overflow";
+}
+
+
+
+//push element at back
+void pushfront(struct stack * newstack , int info)
+{
+  if(stack->top1<stack->top2)
+  {
+    stack->k[stack->top--]=info;
+  }
+  else
+    cout<<"stack overflow";
+}
+
+
+
+
+struct stack * create(unsigned size)
+{
+  struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
+  stack->top1=-1;
+  stack->top2=size;
+  stack->size=size;
+  stack->k= (int *)malloc(size*sizeof(int));
+  return newstack;
+}
+
+
+
+void main()
+{
+  int size;
+  cout<<"enter size of stack";
+  cin>>size;
+  struct stack *newstack=create(int size);
+  push(newstack,size);
+  cout<<pop(newstack);
+  getch();
+}
