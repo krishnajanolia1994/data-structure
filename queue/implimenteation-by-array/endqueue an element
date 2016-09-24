@@ -6,7 +6,6 @@ struct queue
   int front ;
   int rear;
   unsigned sizeofqueue;
-  int size;
 }
 
 
@@ -23,10 +22,16 @@ struct Queue* create(unsigned sizeofqueue)
 
 
 
-//push a element in qoeue
-void push(struct queue * newqueue)
+//endqueue a element in qoeue
+void endqueue(struct queue * newqueue,int info)
 {
-  if(newqueue->size<newqueue-sizeofqueue)
+  if(newqueue->front>=newqueue->rear)
+  {
+    k[newqueue->front]=info;
+    newqueue->front++;
+  }
+  else 
+    cout<<"stack overflow";
 }
 
 
