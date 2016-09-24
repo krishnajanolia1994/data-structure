@@ -1,0 +1,39 @@
+#include<iostream.h>
+#include<conio.h>
+struct queue
+{
+  int *k;
+  int front ;
+  int rear;
+  unsigned sizeofqueue;
+  int size;
+}
+
+
+
+//create a queue
+struct Queue* create(unsigned sizeofqueue)
+{
+    struct Queue* newqueue = (struct Queue*) malloc(sizeof(struct Queue));
+    newqueue->capacity = sizeofqueue;
+    newqueue->front = newqueue->rear = 0;
+    newqueue->k = (int*) malloc(queue->sizeofqueue * sizeof(int));
+    return queue;
+}
+
+
+
+//push a element in qoeue
+void push(struct queue * newqueue)
+{
+  if(newqueue->size<newqueue-sizeofqueue)
+}
+
+
+
+void main
+{
+  unsigned size;
+  struct queue * nequeue=create(size);
+  getch();
+}
