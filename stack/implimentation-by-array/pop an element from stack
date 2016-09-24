@@ -21,13 +21,14 @@ struct stake
 int pop(struct stack *newstack)
 { 
   int x;
-  if(stack->top>=0)
+  if(newstack->top>=0)
   {
-    x=stack->k[stack->top];
-    stack->top--;
+    x=newstack->k[newstack->top];
+    newstack->top--;
   }
   else
     cout<<"stack underflow";
+   return x; 
 }
 
 
@@ -37,7 +38,7 @@ void push(struct stack * newstack , int info)
 {
   if(stack->top<stack->size)
   {
-    stack->k[stack->top++]=info;
+    newstack->k[newstack->newstack++]=info;
   }
   else
     cout<<"stack overflow";
@@ -49,9 +50,9 @@ void push(struct stack * newstack , int info)
 struct stack * create(unsigned size)
 {
   struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
-  stack->top=-1;
-  stack->size=size;
-  stack->k= (int *)malloc(size*sizeof(int));
+  newstack->top=-1;
+  newstack->size=size;
+  newstack->k= (int *)malloc(size*sizeof(int));
   return newstack;
 }
 
