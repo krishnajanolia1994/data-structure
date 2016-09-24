@@ -1,0 +1,125 @@
+How to implement a stack which will support following operations in O(1) time complexity?
+1) push() which adds an element to the top of stack.
+2) pop() which removes an element from top of stack.
+3) findMiddle() which will return middle element of the stack.
+4) deleteMiddle() which will delete the middle element.
+
+
+#include<iostream.h>
+#include<limit.h>
+#include<stdlib.h>
+ 
+ 
+ 
+ 
+ 
+//to create a structure
+struct stake
+{
+  int *k;
+  unsigned size;
+  int top;
+  int mid;
+}
+
+
+
+//function to find mid element
+int find(struct stack *newstack)
+{
+  return newstack->mid;
+}
+
+
+
+//delete mid element
+void findmid(struct stack *newstack)
+{
+  if(newstack->top>=0)
+  {
+    int temp = newstack[newstack->mid]
+    newstack[newstack->mid]=newstack[newstack->top];
+    temp=newstack[newstack->top]=temp;
+    temp=newstack[newstack->top];
+    if(newstack->top>0&&newstack->top%2==0)
+        newstack->mid--;
+      newstack->top--;
+      else if(newstack->top==0)
+        newstack->mid=0;
+  }
+  else
+    cout<<"stack underfllow"
+  return temp;
+}
+
+
+
+//funtion to pop an element
+int pop(struct stack *newstack)
+{ 
+  int x;
+  if(newstack->top>=0)
+  {
+    x=newstack->k[newstack->top];
+    if(newstack->top>0&&newstack->top%2==0)
+      newstack->mid--;
+    newstack->top--;
+    else if(newstack->top==0)
+      newstack->mid=0;
+  }
+  else
+    cout<<"stack underflow";
+  return x;
+}
+
+
+
+//push an element in stack
+void push(struct stack * newstack , int info)
+{
+  if(stack->top<stack->size)
+  {
+    newstack->k[newstack->newstack++]=info;
+    if(top>0&&top%2==0)
+      newstack->mid++;
+  }
+  else
+    cout<<"stack overflow";
+}
+
+
+
+
+struct stack * create(unsigned size)
+{
+  struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
+  newstack->top=-1;
+  newstack->mid=0;
+  newstack->size=size;
+  newstack->k= (int *)malloc(size*sizeof(int));
+  return newstack;
+}
+
+
+
+
+
+
+
+void main()
+{
+  int size,x,y,z;
+  cout<<"enter size of stack";
+  cin>>size;
+  struct stack *newstack=create(int size);
+  push(newstack,x);
+  push(newstack,y);
+  push(newstack,z);
+  push(newstack,x);
+  push(newstack,y);
+  push(newstack,z);
+  cout<<endl<<find(struct newstack);
+  cout<<endl<<findmid(struct newstack);
+  cout<<pop(newstack);
+  getch();
+}
