@@ -1,0 +1,87 @@
+#include<iostream.h>
+#include<conio.h>
+struct node
+{
+  int x; 
+  struct node *next , *prv,*tail;
+}
+
+
+
+//dequeue a queue
+int dequeue(struct node * head)
+{
+  if(head!=NULL)
+  {
+    int x;
+    struct node *templ
+    if(head->tail!=NULL)
+    {
+      temp=head->tail;
+      if(head->tail->prv!=head)
+      {
+        x=head->tail->x;
+        head->tail=head->tail->prv;
+      }
+      else
+      {
+        x=head->tail->x;
+        head->tail=NULL;
+        head->next=NULL;
+      }
+    }
+    else
+    {
+      x=head->x;
+      int del;
+      cout<<"do u want to delete queue ,if so then enter 1 otherwise enter 0";
+      cin>>del;
+      if(del)
+      {
+        free(head);
+      }
+    }
+  }
+}
+
+
+
+
+//function to dequeue
+void enqueue(struct node *head,int x)
+{ 
+  struct node * newnode=(struct node*)malloc(sizeof(struct node));
+  newnode->next=newnode->prv=newnode->tail=NULL;
+  newnode->x=x;
+  if(head==NULL)
+  {
+    head=newnode;
+  }
+  else if(head->tail==NULL)
+  {
+    newnode->next=head;
+    head->prv=newnode;
+    newnode->tail=head;
+  }
+  else
+  {
+    newnode->next=head;
+    head->prv=newnode;
+    newnode->tail=head->tail;
+  }
+}
+
+
+
+void main()
+{
+  int x,y,z;
+  cout<<"enter three number";
+  cin>>x,y,z;
+  struct node *queue= NULL;
+  enqueue(queue,x);
+  enqueue(queue,y);
+  enqueue(queue,y);
+  cout<<dequeue(queue);
+  getch();
+}
