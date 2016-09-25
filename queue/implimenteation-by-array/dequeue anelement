@@ -46,6 +46,9 @@ int dequeue(struct queue *newqueue)
     nequeue->rear++;
   }
   else
+  {
+    if(nequeue->front==nequeue->sizeofqueue)
+      nequeue->front=nequeue->rear=0;
     cout<<"queue enderflow";
   return x;  
 }
@@ -63,3 +66,4 @@ void main
   cout<<dequeue(newqueue);
   getch();
 }
+
