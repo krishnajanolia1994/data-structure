@@ -1,0 +1,48 @@
+#include<iostream.h>
+#include<conio.h>
+struct node
+{
+  int x; 
+  struct node *next , *prv,*tail;
+}
+
+
+
+
+//function to dequeue
+void dequeue(struct node *head,int x)
+{ 
+  struct node * newnode=(struct node*)malloc(sizeof(struct node));
+  newnode->next=newnode->prv=newnode->tail=NULL;
+  newnode->x=x;
+  if(head==NULL)
+  {
+    head=newnode;
+  }
+  else if(head->tail==NULL)
+  {
+    newnode->next=head;
+    head->prv=newnode;
+    newnode->tail=head;
+  }
+  else
+  {
+    newnode->next=head;
+    head->prv=newnode;
+    newnode->tail=head->tail;
+  }
+}
+
+
+
+void main()
+{
+  int x,y,z;
+  cout<<"enter three number";
+  cin>>x,y,z;
+  struct node *queue= NULL;
+  dequeue(queue,x);
+  dequeue(queue,y);
+  dequeue(queue,y);
+  getch();
+}
