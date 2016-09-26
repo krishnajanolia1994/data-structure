@@ -1,0 +1,110 @@
+#include<iostream.h>
+#include<conio.h>
+struct queue
+{
+  int *k;
+  int front ;
+  int rear;
+  unsigned sizeofqueue;
+}
+
+
+
+//create a queue
+struct Queue* create(unsigned sizeofqueue)
+{
+    struct Queue* newqueue = (struct Queue*) malloc(sizeof(struct Queue));
+    newqueue->capacity = sizeofqueue;
+    newqueue->front = newqueue->rear = 0;
+    newqueue->k = (int*) malloc(queue->sizeofqueue * sizeof(int));
+    return queue;
+}
+
+
+
+//endqueue a element in qoeue at front
+void endqueueF(struct queue * newqueue,int info)
+{
+  if(newqueue->front<newqueue->sizeofqueue)
+  {
+    k[newqueue->front]=info;
+    newqueue->front++;
+  }
+  else 
+    cout<<"stack overflow";
+}
+
+
+
+
+//endqueue an element at rear
+void endqueueR(struct queue * newqueue,int info)
+{
+  if(newqueue->rear>=newqueue->sizeofqueue)
+  {
+    k[newqueue->front]=info;
+    newqueue->rear--;
+  }
+  else 
+    cout<<"stack overflow";
+}
+
+
+//dequeue a queue from rear
+int dequeueR(struct queue *newqueue)
+{
+  int x;
+  if(newquque->front>=nequeue->rear)
+  {
+    x=k[nequeue->rear]
+    nequeue->rear++;
+  }
+  else
+  {
+    if(nequeue->front==nequeue->sizeofqueue)
+      nequeue->front=nequeue->rear=0;
+    cout<<"queue enderflow";
+  return x;  
+}
+
+
+
+
+//dequeue from front
+int dequeuF(struct queue *newqueue)
+{
+  int x;
+  if(newquque->front>=nequeue->rear)
+  {
+    x=k[nequeue->front]
+    nequeue->front--;
+  }
+  else
+  {
+    nequeue->front=nequeue->rear=0;
+    cout<<"queue enderflow";
+   }
+  return x;  
+}
+
+
+
+
+void main
+{
+  unsigned size;
+  int x,y,z;
+  struct queue * nequeue=create(size);
+  endqueueF(newqueue,x);
+  endqueueF(newqueue,y);
+  endqueueF(newqueue,z);
+  cout<<dequeueR(newqueue);
+  endqueueR(newqueue,x);
+  cout<<dequeueF(newqueue);
+  cout<<dequeueF(newqueue);
+  cout<<dequeueF(newqueue);
+  cout<<dequeueF(newqueue);
+
+  getch();
+}
+
