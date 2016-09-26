@@ -25,7 +25,7 @@ struct Queue* create(unsigned sizeofqueue)
 //endqueue a element in qoeue
 void endqueue(struct queue * newqueue,int info)
 {
-  if(newqueue->front>=newqueue->rear)
+  if(newqueue->front>newqueue->sizeofqueue)
   {
     k[newqueue->front]=info;
     newqueue->front++;
