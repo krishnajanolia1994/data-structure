@@ -1,0 +1,88 @@
+#include<iostream.h>
+#include<conio.h>
+struct tree
+{
+  int info;
+  struct tree *left,*right;
+}
+
+
+
+//funtion for level order traversal
+void levelorder(struct tree *root)
+{
+  if(root==NULL)
+    return ;
+  if(level==1)
+    cout<<root->info;
+  else
+  {
+    levelorder(tree->left,level-1);
+    levelorder(tree->right,level-1);
+  }
+}
+
+
+
+//function for postorder traversal
+void inorder(struct tree * newtree)
+{
+  inorder(newtree->left);
+  inorder(newtree->left);
+  cout<<newtree->info<<endl;
+}
+
+
+
+//funtion for preorder traversal
+void inorder(struct tree * newtree)
+{
+  cout<<newtree->info<<endl;
+  inorder(newtree->left);
+  inorder(newtree->left);
+}
+
+
+
+
+//funtion for inorder traversal
+void inorder(struct tree * newtree)
+{
+  
+  inorder(newtree->left);
+  cout<<newtree->info<<endl;
+  inorder(newtree->left);
+}
+
+//function to add node
+void add(struct tree * TREE,int flag)
+{
+    struct tree *newtree=(struct tree *)malloc(sizeof(struct tree));
+    newtree->right=NULL;
+    newtree->left=NULL;
+    if(TREE!=NULL)
+    {
+      if(flag)
+        TREE->right=newtree;
+      else
+        TREE->left=newtree;
+    }
+}
+
+
+
+
+
+void main()
+{
+  struct tree *newtree=NULL;
+  add(newtree,1);
+  add(newtree,1);
+  add(newtree,0);
+  add(newtree->left,1);
+  add(newtree->left,0);
+  inorder(newtree);
+  preorder(newtree);
+  postorder(newtree);
+  getch();
+}
