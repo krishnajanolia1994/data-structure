@@ -1,0 +1,116 @@
+#include<iostream.h>
+#include<conio.h>
+struct tree
+{
+  int info;
+  struct tree *left,*right;
+}
+
+
+//funtion to construct a tree from inordr and preeorde travallson
+struct tree * TREE(int preo[],inor[],int i,int j)
+{
+   struct tree * root=(struct tree*)malloc(sizeof(struct tree));
+   if(i<=j)
+   {
+        
+
+        root->info=preo[i];
+        if(preo[i]==inor[i])
+        {
+            root->left=NULL;
+            root->right=TREE(preo,inor,i++,j);
+            return root;
+        }
+        else if(preo[i]==inor[j])
+        {
+            root-right=NULL;
+            root->left=TREE(preo,inor,i,j-1)
+            return root;
+        }
+        else
+        {
+            int k;
+            for(k=(i+1);k<(j-1);k++)
+            {
+                if(preo[i]==inor[k])
+                break;
+            }
+            root->left=TREE(preo,inor,i,k-1);
+            root->right=TREE(preo,inor,k+1,j);
+            return root;
+        }
+
+   }
+   else
+    return NULL;
+   
+}
+
+
+
+//function for postorder traversal
+void inorder(struct tree * newtree)
+{
+  inorder(newtree->left);
+  inorder(newtree->left);
+  cout<<newtree->info<<endl;
+}
+
+
+
+//funtion for preorder traversal
+void inorder(struct tree * newtree)
+{
+  cout<<newtree->info<<endl;
+  inorder(newtree->left);
+  inorder(newtree->left);
+}
+
+
+
+
+//funtion for inorder traversal
+void inorder(struct tree * newtree)
+{
+  
+  inorder(newtree->left);
+  cout<<newtree->info<<endl;
+  inorder(newtree->left);
+}
+
+//function to add node
+void add(struct tree * TREE,int flag)
+{
+    struct tree *newtree=(struct tree *)malloc(sizeof(struct tree));
+    newtree->right=NULL;
+    newtree->left=NULL;
+    if(TREE!=NULL)
+    {
+      if(flag)
+        TREE->right=newtree;
+      else
+        TREE->left=newtree;
+    }
+}
+
+
+
+
+
+void main()
+{
+  struct tree *newtree=NULL;
+  add(newtree,1);
+  add(newtree,1);
+  add(newtree,0);
+  add(newtree->left,1);
+  add(newtree->left,0);
+  inorder(newtree);
+  preorder(newtree);
+  postorder(newtree);
+  char inor[] = {4, 2, 5, 1, 6, 3};
+  char preo[] = {1, 2, 4, 5, 3, 6};
+  struct tree *root=TREE(preo,inor,0,5);
+  getch();
+}
