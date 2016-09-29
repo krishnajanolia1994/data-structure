@@ -1,0 +1,124 @@
+#include<iostream.h>
+#include<conio.h>
+struct tree
+{
+  int info;
+  struct tree *left;
+}
+
+
+
+//delete a node
+void deletenode(struct tree *root,int info)
+{
+  int k=0;
+  struct tree *temp,temp1;
+  temp=root;
+  while(temp!=NULL)
+  {
+
+    if(temp->info==info)
+    {
+      k=1;
+      break;
+    }
+    else if(temp->info<info)
+    {
+      temp1=temp;
+      temp=temp->right;
+    }
+    else
+    {
+      temp1=temp;
+      temp=temp->left;
+
+  }
+
+  if(temp->left==NULL)
+  {
+    temp
+  }
+}
+
+
+//search in binary tree
+void serch(struct tree *root int info)
+{
+  struct tree *temp;
+  int k=0;
+  while(temp!=NULL)
+  {
+    if(temp->info==info)
+    {
+      k=1;
+      break;
+    }
+    else if(temp->info<info)
+    {
+      temp=temp->reght;
+    }
+    else
+      temp=temp->left;
+  }
+  if(k)
+    cout<<"element fount";
+  else
+    cout<<"elemrnt not fount ";
+}
+
+
+void add(struct tree *root,int info)
+{
+  struct tree *node=(struct tree*)malloc(sizeof(struct tree));
+  node->info=info;
+  node->left=NULL;
+  node->right=NULL;
+  if(root==NULL)
+    root=node;
+  int flag=0;
+  else
+  {
+    struct tree *temp;
+    temp=root;
+    while(temp!=NULL)
+    {
+      if(temp->info==info)
+      {
+        flag=0;
+        break;
+      }
+      else if(temp->info<info)
+      {
+        temp=temp->right;
+      }
+      else
+        temp=temp->reght;
+    }
+    if(flag)
+      cout<<"element alraidy exist";
+    else
+    {
+      if(temp->info<info)
+        temp->right=node;
+      else
+        temp->left=node;
+    }
+    
+  }
+}
+
+
+
+void main()
+{
+  struct tree * root=NULL;
+  add(root,15);
+  add(root,17);
+  add(root,11);
+  add(root,13);
+  add(root,10);
+  add(root,27);
+  search(root,11);
+  
+  getch();
+}
