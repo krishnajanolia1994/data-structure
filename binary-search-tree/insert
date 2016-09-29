@@ -1,0 +1,63 @@
+#include<iostream.h>
+#include<conio.h>
+struct tree
+{
+  int info;
+  struct tree *left,*right;
+}
+
+
+void add(struct tree *root,int info)
+{
+  struct tree *node=(struct tree*)malloc(sizeof(struct tree));
+  node->info=info;
+  node->left=NULL;
+  node->right=NULL;
+  if(root==NULL)
+    root=node;
+  int flag=0;
+  else
+  {
+    struct tree *temp;
+    temp=root;
+    while(temp!=NULL)
+    {
+      if(temp->info==info)
+      {
+        flag=0;
+        break;
+      }
+      else if(temp->info<info)
+      {
+        temp=temp->right;
+      }
+      else
+        temp=temp->reght;
+    }
+    if(flag)
+      cout<<"element alraidy exist";
+    else
+    {
+      if(temp->info<info)
+        temp->right=node;
+      else
+        temp->left=node;
+    }
+    
+  }
+}
+
+
+
+void main()
+{
+  struct tree * root=NULL;
+  add(root,15);
+  add(root,17);
+  add(root,11);
+  add(root,13);
+  add(root,10);
+  add(root,27);
+  
+  getch();
+}
