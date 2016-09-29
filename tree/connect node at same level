@@ -1,0 +1,201 @@
+#include<iostream.h>
+#include<conio.h>
+struct tree
+{
+  int info;
+  struct tree *left,*right;
+};
+
+
+
+struct queue
+{
+  struct tree1 * root;
+  int front ;
+  int rear;
+  unsigned sizeofqueue;
+};
+
+
+
+//create a queue
+struct queue* create(unsigned sizeofqueue)
+{
+    struct Queue* newqueue = (struct Queue*) malloc(sizeof(struct Queue));
+    newqueue->capacity = sizeofqueue;
+    newqueue->front = newqueue->rear = 0;
+    newqueue->root = (struct tree1*) malloc(queue->sizeofqueue * sizeof(struct tree1));
+    return queue;
+}
+
+
+
+//endqueue a element in qoeue
+void endqueue(struct queue * newqueue,int info)
+{
+  if(newqueue->front<newqueue->sizeofqueue)
+  {
+    k[newqueue->root]=info;
+    newqueue->front++;
+  }
+  else 
+    cout<<"stack overflow";
+}
+
+
+
+
+//dequeue a queue
+int dequeue(struct queue *newqueue)
+{
+  int x;
+  if(newquque->front>=nequeue->rear)
+  {
+    x=k[nequeue->rear]
+    nequeue->rear++;
+  }
+  else
+  {
+    if(nequeue->front==nequeue->sizeofqueue)
+      nequeue->front=nequeue->rear=0;
+    cout<<"queue enderflow";
+  return x;  
+}
+
+
+
+
+
+
+
+
+
+
+struct tree1
+{
+  int info;
+  struct tree *left,*right,*side;
+}
+
+
+//funtion to construct a tree from inordr and preeorde travallson
+struct tree * TREE(int preo[],inor[],int i,int j)
+{
+   struct tree1 * root=(struct tree*)malloc(sizeof(struct tree));
+   if(i<=j)
+   {
+        
+
+        root->info=preo[i];
+        root->side=NULL;
+        if(preo[i]==inor[i])
+        {
+            root->left=NULL;
+            root->right=TREE(preo,inor,i++,j);
+            return root;
+        }
+        else if(preo[i]==inor[j])
+        {
+            root-right=NULL;
+            root->left=TREE(preo,inor,i,j-1)
+            return root;
+        }
+        else
+        {
+            int k;
+            for(k=(i+1);k<(j-1);k++)
+            {
+                if(preo[i]==inor[k])
+                break;
+            }
+            root->left=TREE(preo,inor,i,k-1);
+            root->right=TREE(preo,inor,k+1,j);
+            return root;
+        }
+
+   }
+   else
+    return NULL;
+   
+}
+
+
+
+//to connect all node of tree at same level
+viod connect(struct tree1 *root)
+{
+  struct queue * newqueue=create(6);
+  endqueue(newqueue,root);
+  while(newqueue->rear<=front)
+  {
+    
+  }
+}
+
+
+
+//function for postorder traversal
+void inorder(struct tree * newtree)
+{
+  inorder(newtree->left);
+  inorder(newtree->left);
+  cout<<newtree->info<<endl;
+}
+
+
+
+//funtion for preorder traversal
+void inorder(struct tree * newtree)
+{
+  cout<<newtree->info<<endl;
+  inorder(newtree->left);
+  inorder(newtree->left);
+}
+
+
+
+
+//funtion for inorder traversal
+void inorder(struct tree * newtree)
+{
+  
+  inorder(newtree->left);
+  cout<<newtree->info<<endl;
+  inorder(newtree->left);
+}
+
+//function to add node
+void add(struct tree * TREE,int flag)
+{
+    struct tree *newtree=(struct tree *)malloc(sizeof(struct tree));
+    newtree->right=NULL;
+    newtree->left=NULL;
+    if(TREE!=NULL)
+    {
+      if(flag)
+        TREE->right=newtree;
+      else
+        TREE->left=newtree;
+    }
+}
+
+
+
+
+
+void main()
+{
+  struct tree *newtree=NULL;
+  add(newtree,1);
+  add(newtree,1);
+  add(newtree,0);
+  add(newtree->left,1);
+  add(newtree->left,0);
+  inorder(newtree);
+  preorder(newtree);
+  postorder(newtree);
+  char inor[] = {4, 2, 5, 1, 6, 3};
+  char preo[] = {1, 2, 4, 5, 3, 6};
+  struct tree1 *root=TREE(preo,inor,0,5);
+  getch();
+}
