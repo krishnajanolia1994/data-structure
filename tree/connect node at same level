@@ -59,15 +59,10 @@ int dequeue(struct queue *newqueue)
     if(nequeue->front==nequeue->sizeofqueue)
       nequeue->front=nequeue->rear=0;
     cout<<"queue enderflow";
-  return x;  
+  return ;  
+  }
+  return x;
 }
-
-
-
-
-
-
-
 
 
 
@@ -128,7 +123,13 @@ viod connect(struct tree1 *root)
   endqueue(newqueue,root);
   while(newqueue->rear<=front)
   {
-    
+    struct tree1 ,*root, *root1 ,*root2;
+    root=dequeue(newqueue);
+    root1=root->left;
+    root2=root->right;
+    root1->side=root2;
+    endqueue(newqueue,root1);
+    endqueue(newqueue,root2);
   }
 }
 
