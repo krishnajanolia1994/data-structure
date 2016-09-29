@@ -9,34 +9,73 @@ struct tree
 
 
 //delete a node
-void deletenode(struct tree *root,int info)
+int  deletenode(struct tree *root,int info)
 {
-  int k=0;
-  struct tree *temp,temp1;
-  temp=root;
-  while(temp!=NULL)
+  struct *temp1,*temp2;
+  int temp;
+  if(root->info==info)
   {
-
-    if(temp->info==info)
-    {
-      k=1;
-      break;
-    }
-    else if(temp->info<info)
-    {
-      temp1=temp;
-      temp=temp->right;
-    }
-    else
-    {
-      temp1=temp;
-      temp=temp->left;
-
+    
+    struct temp1=getnode(root->right);
+    temp=root->info;
+    root->info=temp1->info;
+    temp1->info-temp;
+    free(temp1)
   }
-
-  if(temp->left==NULL)
+  else
   {
-    temp
+    int k=0;
+    temp1=temp2=root;
+    if(temp2->info<info)
+      temp2=temp2->right;
+    else
+      temp2=temp2->left;
+    while(temp2!=NULL)
+    {
+      if(temp2->info==info)
+      {
+        k=1;
+        break;
+      }
+      temp1=temp2;
+      if(temp2->info<info)
+      {
+        temp2=temp2->right;
+      }
+      else
+        temp2=temp2->left;
+    }
+    if(k)
+    {
+      if(temp2->left==NULL)
+      {
+        if(temp1->left==temp2)
+        {
+          temp1->left=temp->right;
+        }
+        if(temp1->right==temp2)
+        {
+          temp1->right=temp->right;
+        }
+        free(temp2);
+      }
+      if(temp2->right==NULL)
+      {
+        if(temp1->left==temp2)
+        {
+          temp1->left=temp->left;
+        }
+        if(temp1->right==temp2)
+        {
+          temp1->right=temp->left;
+        }
+        free(temp2);
+      }
+      else
+      {
+      
+      }
+    }
   }
 }
 
