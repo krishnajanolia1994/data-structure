@@ -1,0 +1,331 @@
+#include<iostream.h>
+#include<conio.h>
+struct tree
+{
+  int info;
+  struct tree *left;
+}
+
+
+//function to find inorder sucessor
+int findfloor(struct tree *root,int info)
+{
+  struct tree *temp=root;
+  while(temp=!NULL)
+  {
+    if(temp->info==info)
+    break;
+  }
+  if(temp->right!=NULL)
+  {
+    temp=temp->right;
+    while(temp!=NULL)
+      temp=temp->left;
+    return temp->info;
+  }
+  else
+    return 0;
+}
+
+
+
+//function to find lca
+int findlca(struct tree *root,int info1,int info2)
+{
+    struct tree *temp=root;
+    int x,y,z;
+    x=y=0;
+    if(info1>info2)
+    {
+    int temp;
+    temp=info1;
+    info1=info2;
+    info2=temp;
+    }
+    while(temp!=NULL)
+    {
+        if(x==0&&y==0)
+        {
+            if(temp->info==info1)
+            {
+                x=1;
+                z=temp->info;
+            }
+            else if(temp->info==info2)
+            {
+                y=1;
+                z=temp->info;
+            }
+            else if(temp->info<info1)
+                temp=temp->right;
+            else
+                temp=temp->left;
+            
+        }
+        if(x==0)
+        {
+            if(temp->info==info1)
+                x=1;
+            else if(temp->info<info1)
+                temp=temp->right;
+            else
+                temp=temp->left
+        }
+        if(y==0)
+        {
+            if(temp->info==info2)
+                y=1;
+            else if(temp->info<info2)
+                temp=temp->right;
+            else
+                temp=temp->left
+        }
+        if(x==1&&y==1)
+            break;
+    }
+    if(x==1&&y==1)
+        return z;
+    else
+        return 0;
+}
+
+
+
+
+
+//function to find whether a tree is binary search tree or not
+void findBinaryTree(struct tree * newtree)
+{
+  if((tree->info<tree->right||tree->right==NULL)&&(tree->info>tree->left->info||tree->left==NULL))
+  {
+    inorder(newtree->left);
+    inorder(newtree->left);
+    return 1;
+  }
+  else
+    return 0;
+}
+
+
+
+
+//function to find inorder sucessor
+int findsucessor(struct tree *root,int info)
+{
+  struct tree *temp=root;
+  while(temp=!NULL)
+  {
+    if(temp->info==info)
+    break;
+  }
+  if(temp->right!=NULL)
+  {
+    temp=temp->right;
+    while(temp!=NULL)
+      temp=temp->left;
+    return temp->info;
+  }
+  else
+    return 0;
+}
+
+
+
+
+
+
+//function to find inorder predessor
+int findpredessor(struct tree *root,int info)
+{
+  struct tree *temp=root;
+  while(temp=!NULL)
+  {
+    if(temp->info==info)
+    break;
+  }
+  if(temp->left!=NULL)
+  {
+    temp=temp->left;
+    while(temp!=NULL)
+      temp=temp->right
+    return temp->info;
+  }
+  else
+    return 0;
+}
+
+
+
+
+//find minimum
+int find(struct tree *root)
+{
+  struct tree *temp;
+  while(temp!=NULL)
+  {
+    temp=temp->left;
+  }
+  return temp->info;
+}
+
+
+
+//delete a node
+int  deletenode(struct tree *root,int info)
+{
+  struct *temp1,*temp2;
+  int temp;
+  if(root->info==info)
+  {
+    
+    struct temp1=getnode(root->right);
+    temp=root->info;
+    root->info=temp1->info;
+    temp1->info-temp;
+    free(temp1)
+  }
+  else
+  {
+    int k=0;
+    temp1=temp2=root;
+    if(temp2->info<info)
+      temp2=temp2->right;
+    else
+      temp2=temp2->left;
+    while(temp2!=NULL)
+    {
+      if(temp2->info==info)
+      {
+        k=1;
+        break;
+      }
+      temp1=temp2;
+      if(temp2->info<info)
+      {
+        temp2=temp2->right;
+      }
+      else
+        temp2=temp2->left;
+    }
+    if(k)
+    {
+      if(temp2->left==NULL)
+      {
+        if(temp1->left==temp2)
+        {
+          temp1->left=temp->right;
+        }
+        if(temp1->right==temp2)
+        {
+          temp1->right=temp->right;
+        }
+        free(temp2);
+      }
+      if(temp2->right==NULL)
+      {
+        if(temp1->left==temp2)
+        {
+          temp1->left=temp->left;
+        }
+        if(temp1->right==temp2)
+        {
+          temp1->right=temp->left;
+        }
+        free(temp2);
+      }
+      else
+      {
+      
+      }
+    }
+  }
+}
+
+
+//search in binary tree
+void serch(struct tree *root int info)
+{
+  struct tree *temp;
+  int k=0;
+  while(temp!=NULL)
+  {
+    if(temp->info==info)
+    {
+      k=1;
+      break;
+    }
+    else if(temp->info<info)
+    {
+      temp=temp->reght;
+    }
+    else
+      temp=temp->left;
+  }
+  if(k)
+    cout<<"element fount";
+  else
+    cout<<"elemrnt not fount ";
+}
+
+
+void add(struct tree *root,int info)
+{
+  struct tree *node=(struct tree*)malloc(sizeof(struct tree));
+  node->info=info;
+  node->left=NULL;
+  node->right=NULL;
+  if(root==NULL)
+    root=node;
+  int flag=0;
+  else
+  {
+    struct tree *temp;
+    temp=root;
+    while(temp!=NULL)
+    {
+      if(temp->info==info)
+      {
+        flag=0;
+        break;
+      }
+      else if(temp->info<info)
+      {
+        temp=temp->right;
+      }
+      else
+        temp=temp->reght;
+    }
+    if(flag)
+      cout<<"element alraidy exist";
+    else
+    {
+      if(temp->info<info)
+        temp->right=node;
+      else
+        temp->left=node;
+    }
+    
+  }
+}
+
+
+
+void main()
+{
+  struct tree * root=NULL;
+  add(root,15);
+  add(root,17);
+  add(root,11);
+  add(root,13);
+  add(root,10);
+  add(root,27);
+  search(root,11);
+  cout<<find(root);
+  cout<<findpredessor(root,11);
+  cout<<endl<<findfloor(root,11);
+  getch();
+}
+
+
+
+
