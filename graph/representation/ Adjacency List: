@@ -1,0 +1,72 @@
+#include<iostream.h>
+#include<conio.h>
+
+ 
+ 
+struct node
+{
+  int x;
+  strcut node *bottem;
+  struct subnode *next;
+}
+
+
+struct subnode
+{
+  int x;
+  struct subnode *next;
+}
+
+
+//funtion to add in linked list
+void addlinkedlist(struct node *head,int info,int k)
+{
+  if(head ==NULL)
+  {
+    struct node *newnode=(struct node*)malloc(sizeof(struct node));
+    newnode->=k;
+    newnode->bottom=NULL;
+    struct subnode *subnewnode=(struct subnode*)malloc(sizeof(struct node));
+    subnewnode->x=info;
+    subnewnode->next=NULL;
+    newnode->next=subnewnode;
+  }
+  else
+  {
+    struct node *temp=head;
+    int flag=0;
+    while(temp!NULL)
+    {
+      if(temp->x==k)
+      {
+        break;
+        flag=1;
+      }
+      if(flag)
+      {
+        struct subnode *subnewnode=(struct subnode*)malloc(sizeof(struct node));
+        subnewnode->x=info;
+        subnewnode->next=NULL;
+        newnode->next=subnewnode;
+      }
+      else
+      {
+         struct node *newnode=(struct node*)malloc(sizeof(struct node));
+         newnode->=k;
+         newnode->bottom=NULL;
+         struct subnode *subnewnode=(struct subnode*)malloc(sizeof(struct node));
+         subnewnode->x=info;
+         subnewnode->next=NULL;
+         newnode->next=subnewnode;t
+         temp->bottom=newnode;
+      }
+    }
+  }
+}
+
+
+
+void main()
+{
+
+}
