@@ -1,0 +1,35 @@
+#include<iostream.h>
+#include<conio.h>
+int find(int a[],int b[],int l1,int l2)
+{
+  int i,j;
+  int flag=1;
+  for(i=0;i<l1;i++)
+  {
+    for(j=0;j<l2;j++)
+    {
+      if(a[i]==b[j])
+        break;
+      else if(j==(l2-1))
+        flag=0;
+    }
+    if(flag==0)
+    brak;
+  }
+  if(falg)
+    return 1;
+  else
+    return 0;
+}
+
+
+
+void main()
+{
+  int a[3],b[6];
+  for(i=0i<6;i++)
+  cin>>b[i];
+    for(i=0i<3;i++)
+  cin>>a[i];
+  getch();
+}
