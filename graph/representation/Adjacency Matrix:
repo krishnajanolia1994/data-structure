@@ -1,0 +1,29 @@
+#include<iostream.h>
+#include<conio.h>
+void create(int *p,int v)
+{
+  for(i=0;i<v;i++)
+    for(j=0;j<v;j++)
+      p[i][j]=0;
+}
+
+
+//function to insert node in graph
+void add(int *p,int i,j)
+{
+  p[i][j]=1;
+}
+
+
+void main()
+{
+  int v[10][10];
+  create(&v[0][0],10);
+  cout<<"ender cordinate of node of graph";
+  for(i=0;i<10;i++)
+  {
+    cin>>a>>b;
+    add(&v[0][0],a,b);
+  }
+  getch();
+}
