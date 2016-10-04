@@ -6,17 +6,92 @@ struct tree
   struct tree *left,*right;
 }
 
-void inorder(struct tree * newtree)
+
+struct node
+{
+  int x;
+  strcut node *bottem;
+  struct subnode *next;
+}
+
+
+struct subnode
+{
+  int x;
+  struct subnode *next;
+}
+
+
+//funtion to add in linked list
+void addlinkedlist(struct node *head,int info,int k)
+{
+  if(head ==NULL)
+  {
+    struct node *newnode=(struct node*)malloc(sizeof(struct node));
+    newnode->=k;
+    newnode->bottom=NULL;
+    struct subnode *subnewnode=(struct subnode*)malloc(sizeof(struct node));
+    subnewnode->x=info;
+    subnewnode->next=NULL;
+    newnode->next=subnewnode;
+  }
+  else
+  {
+    struct node *temp=head;
+    int flag=0;
+    while(temp!NULL)
+    {
+      if(temp->x==k)
+      {
+        break;
+        flag=1;
+      }
+      if(flag)
+      {
+        struct subnode *subnewnode=(struct subnode*)malloc(sizeof(struct node));
+        subnewnode->x=info;
+        subnewnode->next=NULL;
+        newnode->next=subnewnode;
+      }
+      else
+      {
+         struct node *newnode=(struct node*)malloc(sizeof(struct node));
+         newnode->=k;
+         newnode->bottom=NULL;
+         struct subnode *subnewnode=(struct subnode*)malloc(sizeof(struct node));
+         subnewnode->x=info;
+         subnewnode->next=NULL;
+         newnode->next=subnewnode;t
+         temp->bottom=newnode;
+      }
+    }
+  }
+}
+
+void printverticl(struct tree * newtree,struct node *head,k)
 {
   
-  inorder(newtree->left);
-  cout<<newtree->info<<endl;
-  inorder(newtree->left);
+  inorder(newtree->left,head,k++);
+  addlinkedlist(head,k);
+  inorder(newtree->right,head,k--);
 }
 
 
 
-
+void print(struct node * head)
+{
+  struct node *temp=head;
+  struct newnode *temp1;
+  while(temp!NULL)
+  {
+    temp1=temp->next;
+    while(temp1!=NULL)
+    {
+      cout<<temp1->info;
+    }
+    cout<<endl;
+  }
+}
 
 //function to add node
 void add(struct tree * TREE,int flag)
@@ -45,6 +120,8 @@ void main()
   add(newtree,0);
   add(newtree->left,1);
   add(newtree->left,0);
-  inorder(newtree);
+  struct node *linked=NULL;
+  printvertical(newtree,linkedlist,0);
+  print(linkedlist);
   getch();
 }
