@@ -16,7 +16,7 @@ struct stack
 
 
 
-void addnode(struct node *head,int x,int y)
+void addnode(struct node *head,int x,int y,int)
 {
     if(head==NULL)
     {
@@ -28,14 +28,60 @@ void addnode(struct node *head,int x,int y)
         current++;
         current =NULL;
     }
+    else
+    {
+        struct nose *temp=head;
+        struct stack *newstack=ctreate();
+        while(temp->info!=x)
+        {
+            
+        }
+    }
 }
 
 
 
 
-struct stack * create( cpacity)
+//funtion to pop an element
+int pop(struct stack *newstack)
+{ 
+  struct node * x=NULL;
+  if(newstack->top>=0)
+  {
+    x=newstack->k[newstack->top];
+    newstack->top--;
+  }
+  else
+    cout<<"stack underflow";
+   return x; 
+}
+
+
+
+//push an element in stack
+void push(struct stack * newstack , struct node * info)
 {
-    struct stack *newstack=(struct stack*)malloc(sizeof(struct stack));
-    newstack->top=-1;
-    
+  if(stack->top<stack->capacity)
+  {
+    newstack->k[newstack->newstack++]=info;
+  }
+  else
+    cout<<"stack overflow";
 }
+
+
+
+
+struct stack * create(unsigned size)
+{
+  struct stack * newstack=(struct stack*)malloc(sizeof(struct stack));
+  newstack->top=-1;
+  newstack->size=size;
+  newstack->info= (struct node *)malloc(capacity*sizeof(struct node));
+  return newstack;
+}
+
+
+
+
+
