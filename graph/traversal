@@ -1,0 +1,41 @@
+#include<iostream.h>
+#include<conio.h>
+struct node 
+{
+    int info;
+    struct node *start;
+    strcut node *current;
+};
+struct stack
+{
+    int top;
+    struct node* info;
+    unsighned capacity;
+}
+
+
+
+
+void addnode(struct node *head,int x,int y)
+{
+    if(head==NULL)
+    {
+        head->info=x;
+        strcut node *newnode =(struct node *)malloc(sizeof(struct node));
+        newnode->info=y;
+        current=newnode;
+        start=current;
+        current++;
+        current =NULL;
+    }
+}
+
+
+
+
+struct stack * create( cpacity)
+{
+    struct stack *newstack=(struct stack*)malloc(sizeof(struct stack));
+    newstack->top=-1;
+    
+}
