@@ -19,7 +19,7 @@ struct subnode
 
 
 //funtion to add in linked list
-void addlinkedlist(struct node *head,int info,int k)
+void addlinkedlist(struct node *head,int k,int info)
 {
   if(head ==NULL)
   {
@@ -68,5 +68,17 @@ void addlinkedlist(struct node *head,int info,int k)
 
 void main()
 {
-
+    int i,j;
+    struct node=NULL;
+    int n;
+    cout<<"enter number of node u want to enter";
+    cin>>n;
+    int k;
+    for(k=0;k<n;k++)
+    {
+        cout<<"enter value of intial and final  "<<k+1<<"verticess";
+        cin>>i>>j;
+        addlinkedlist(node,i,j);
+    }
+    getch();
 }
