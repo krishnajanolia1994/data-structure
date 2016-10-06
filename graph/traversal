@@ -32,41 +32,37 @@ void addnode(struct node *head,int x,int y,int z)
             newnode->flag=1;
         else
             newnode->flag=0;
-        current=newnode;
-        start=current;
-        current++;
+        newnode->current =newnode->start=current;
+        head->current=newnode;
+        head-start=current;
+        head->current++;
         current =NULL;
     }
     else
     {
-        struct nose *temp=head;
-        struct nose *temp1=head;
+        struct node *temp=head;
+        struct node *temp1=head;
         struct stack *newstack=ctreate();
         while(temp->info!=x)
-        {
-            temp->flag=1;
+        {   if(z==0)        
+                temp->flag=1;
+            else
+                temp->flag=0;
             temp1=temp->start;
             while(temp1!=NULL)
             {
                 if(temp1->info==x)
                 {
                     temp=temp1;
+                    if(z)
+                        temp->flag=0;
+                    else
+                        temp->flag=1;
                     break;
                 }
                 else
                 {
                     if(z)
-                    {
-                        if(temp1->flag==0)
-                        {
-                            temp1->flag=1;
-                            push(newstack,temp1);
-                            temp1++;
-                            if(temp1==NULL)
-                            temp=pop(newstack);
-                        }
-                    }
-                    else
                     {
                         if(temp1->flag==1)
                         {
@@ -77,9 +73,59 @@ void addnode(struct node *head,int x,int y,int z)
                             temp=pop(newstack);
                         }
                     }
+                    else
+                    {
+                        if(temp1->flag==0)
+                        {
+                            temp1->flag=1;
+                            push(newstack,temp1);
+                            temp1++;
+                            if(temp1==NULL)
+                            temp=pop(newstack);
+                        }
+                    }
                 }
             }
         
+        
+        }
+        struct node *newnode=(struct node*)malloc(sizeof(struct node));
+        newnode->info=y;
+        if(z)
+            newnode->flag=0;
+        else
+            newnode->flag=1;
+        while(newstack->top<=0)
+        {   if(z==0)        
+                temp->flag=1;
+            else
+                temp->flag=0;
+            temp1=temp->start;
+            while(temp1!=NULL)
+            {
+                if(z)
+                {
+                    if(temp1->flag==1)
+                    {
+                        temp1->flag=0;
+                        push(newstack,temp1);
+                        temp1++;
+                        if(temp1==NULL)
+                        temp=pop(newstack);
+                    }
+                }
+                else
+                {
+                    if(temp1->flag==0)
+                    {
+                        temp1->flag=1;
+                        push(newstack,temp1);
+                        temp1++;
+                        if(temp1==NULL)
+                        temp=pop(newstack);
+                    }
+                }
+            }
         }
     }
 }
