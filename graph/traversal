@@ -32,11 +32,11 @@ void addnode(struct node *head,int x,int y,int z)
             newnode->flag=1;
         else
             newnode->flag=0;
-        newnode->current =newnode->start=current;
+        newnode->current =newnode->start=NULL;
         head->current=newnode;
         head-start=current;
         head->current++;
-        current =NULL;
+        head->current =NULL;
     }
     else
     {
@@ -48,12 +48,12 @@ void addnode(struct node *head,int x,int y,int z)
                 temp->flag=1;
             else
                 temp->flag=0;
-            temp1=temp->start;
-            while(temp1!=NULL)
+            temp->current=temp->start;
+            while(temp->current!=NULL)
             {
-                if(temp1->info==x)
+                if(temp->current->info==x)
                 {
-                    temp=temp1;
+                    temp=temp->current;
                     if(z)
                         temp->flag=0;
                     else
@@ -64,30 +64,28 @@ void addnode(struct node *head,int x,int y,int z)
                 {
                     if(z)
                     {
-                        if(temp1->flag==1)
+                        if(temp->current->flag==1)
                         {
-                            temp1->flag=0;
-                            push(newstack,temp1);
-                            temp1++;
-                            if(temp1==NULL)
-                            temp=pop(newstack);
+                            temp->current->flag=0;
+                            push(newstack,temp->current);
+                            temp->current++;
+                            if(temp->current==NULL)
+                                temp=pop(newstack);
                         }
                     }
                     else
                     {
-                        if(temp1->flag==0)
+                        if(temp->current->flag==0)
                         {
-                            temp1->flag=1;
-                            push(newstack,temp1);
-                            temp1++;
+                            temp->current->flag=1;
+                            push(newstack,temp->current);
+                            temp->current++;
                             if(temp1==NULL)
-                            temp=pop(newstack);
+                                temp=pop(newstack);
                         }
                     }
                 }
             }
-        
-        
         }
         struct node *newnode=(struct node*)malloc(sizeof(struct node));
         newnode->info=y;
@@ -95,33 +93,35 @@ void addnode(struct node *head,int x,int y,int z)
             newnode->flag=0;
         else
             newnode->flag=1;
+        newnode->current=newnode->start=NULL;
+        temp->current=newnode;
         while(newstack->top<=0)
         {   if(z==0)        
                 temp->flag=1;
             else
                 temp->flag=0;
-            temp1=temp->start;
-            while(temp1!=NULL)
+            temp->current=temp->start;
+            while(temp->current!=NULL)
             {
                 if(z)
                 {
-                    if(temp1->flag==1)
+                    if(temp->current->flag==1)
                     {
-                        temp1->flag=0;
-                        push(newstack,temp1);
-                        temp1++;
-                        if(temp1==NULL)
-                        temp=pop(newstack);
+                        temp->current->flag=0;
+                        push(newstack,temp->current);
+                        temp->current++;
+                        if(temp->current==NULL)
+                            temp=pop(newstack);
                     }
                 }
                 else
                 {
-                    if(temp1->flag==0)
+                    if(temp->current->flag==0)
                     {
-                        temp1->flag=1;
-                        push(newstack,temp1);
-                        temp1++;
-                        if(temp1==NULL)
+                        temp->current->flag=1;
+                        push(newstack,temp->current);
+                        temp->current++;
+                        if(temp->current==NULL)
                         temp=pop(newstack);
                     }
                 }
@@ -129,6 +129,9 @@ void addnode(struct node *head,int x,int y,int z)
         }
     }
 }
+
+
+void tr
 
 
 
