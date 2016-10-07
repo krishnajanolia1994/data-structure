@@ -55,9 +55,9 @@ void addnode(struct node *head,int x,int y,int z)
                 {
                     temp=temp->current;
                     if(z)
-                        temp->flag=0;
+                        temp->current->flag=0;
                     else
-                        temp->flag=1;
+                        temp->current->flag=1;
                     break;
                 }
                 else
@@ -95,6 +95,8 @@ void addnode(struct node *head,int x,int y,int z)
             newnode->flag=1;
         newnode->current=newnode->start=NULL;
         temp->current=newnode;
+        temp->current++;
+        temp->current=NULL;
         while(newstack->top<=0)
         {   if(z==0)        
                 temp->flag=1;
@@ -131,7 +133,65 @@ void addnode(struct node *head,int x,int y,int z)
 }
 
 
-void tr
+void traversal(struct node *head,int z)
+{
+    if(head==NULL)
+        cout<<"graph is eampty";
+    else
+    {
+        cout<<"head info"<<head->info;
+        struct stack *newstack=create();
+        push(newstack,head);
+        struct node *temp;
+        struct node *mintemp;
+        int flag=1;
+        while(newstack->top<=0)
+        {  
+            if(flag)
+                {
+                temp=pop(newstack);
+                fag=0;
+                }
+            if(z==0)        
+                temp->flag=1;
+            else
+                temp->flag=0;
+            temp->current=temp->start;
+            while(temp->current!=NULL)
+            {
+                if(z)
+                {
+                    if(temp->current->flag==1)
+                    {
+                        temp->current->flag=0;
+                        if(temp->current==temp-start)
+                            mintemp=temp->current;
+                        else
+                        {
+                            if(temp->current->info<mintemp->info)
+                                mintemp=temp->current;
+                        }
+                        push(newstack,temp->current);
+                        temp->current++;
+                        if(temp->current==NULL)
+                            temp=pop(newstack);
+                    }
+                }
+                else
+                {
+                    if(temp->current->flag==0)
+                    {
+                        temp->current->flag=1;
+                        push(newstack,temp->current);
+                        temp->current++;
+                        if(temp->current==NULL)
+                        temp=pop(newstack);
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 
